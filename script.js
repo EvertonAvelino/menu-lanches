@@ -88,10 +88,23 @@ sl('.lancheInfo--addButton').addEventListener('click', () => {
 
     let tamanho = parseInt(sl('.lancheInfo--size.selected').getAttribute('data-key'));
 
-    cart.push({
-        id: lancheJson[modalKey].id,
-        tamanho: tamanho,
-        qt: modalQt
-    });
+    let identificador = lancheJson[modalKey].id + '@' + tamanho;
+
+    let key = cart.findIndex((item) => item.identificador == identificador);
+
+    if (key > -1) {
+
+        cart[key].qt = modalQt;
+
+    } else {
+        cart.push({
+
+            identificador,
+            id: lancheJson[modalKey].id,
+            tamanho: tamanho,
+            qt: modalQt
+        });
+
+    }
     closeModal();
 });
