@@ -114,8 +114,8 @@ function updateCart() {
     if (cart.length > 0) {
         sl('aside').classList.add('show');
         for (let i in cart) {
-            //função para retornar os dados do lanche no carrinho
-            let lancheItem = lancheJson.find((item) => item.id == cart[i].id;
+            // função para retornar os dados do lanche no carrinho
+            let lancheItem = lancheJson.find((item) => item.id == cart[i].id);
 
         }
     } else {
