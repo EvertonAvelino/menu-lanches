@@ -14,3 +14,14 @@
 [1206/230108.590:ERROR:crash_report_database_win.cc(457)] unexpected header
 [1206/230354.168:ERROR:crash_report_database_win.cc(457)] unexpected header
 [1206/231435.093:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/232435.103:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/232435.103:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1206/232435.103:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/232435.103:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/232935.093:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/233012.036:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/234012.036:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/234012.036:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[1206/234012.038:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/234012.038:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1206/234512.045:ERROR:crash_report_database_win.cc(457)] unexpected header

@@ -1,8 +1,10 @@
-
+let cart = [];
 let modalQt = 1;
+let modalKey = 0;
+
 //função que reduz o codigo da querySelector
-const sl = (el) => document.querySelector(el);
-const cl = (el) => document.querySelectorAll(el);
+const sl = (el) => document.querySelector(el);//c
+const cl = (el) => document.querySelectorAll(el);//cs
 
 //listagem das pizzas
 lancheJson.map((item, index) => {
@@ -18,8 +20,11 @@ lancheJson.map((item, index) => {
     lancheItem.querySelector('a').addEventListener('click', (e) => {
         e.preventDefault();
 
+        // Armazena qual o lanche escolhido
         let key = e.target.closest('.lanche-item').getAttribute('data-key');
         modalQt = 1;
+        modalKey = key;
+
 
         sl('.lancheBig img').src = lancheJson[key].img;
         sl('.lancheInfo h1').innerHTML = lancheJson[key].name;
@@ -77,4 +82,16 @@ cl('.lancheInfo--size').forEach((size, sizeIndex) => {
         sl('.lancheInfo--size.selected').classList.remove('selected');
         size.classList.add('selected');
     });
+});
+// adicionando produtos ao carrinho, armazena qual lanche, tamanho e quantidade
+sl('.lancheInfo--addButton').addEventListener('click', () => {
+
+    let tamanho = parseInt(sl('.lancheInfo--size.selected').getAttribute('data-key'));
+
+    cart.push({
+        id: lancheJson[modalKey].id,
+        tamanho: tamanho,
+        qt: modalQt
+    });
+    closeModal();
 });
