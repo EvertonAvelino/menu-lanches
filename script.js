@@ -93,9 +93,7 @@ sl('.lancheInfo--addButton').addEventListener('click', () => {
     let key = cart.findIndex((item) => item.identificador == identificador);
 
     if (key > -1) {
-
         cart[key].qt = modalQt;
-
     } else {
         cart.push({
 
@@ -106,5 +104,21 @@ sl('.lancheInfo--addButton').addEventListener('click', () => {
         });
 
     }
+    updateCart()
     closeModal();
 });
+
+//atualizar carrinho
+
+function updateCart() {
+    if (cart.length > 0) {
+        sl('aside').classList.add('show');
+        for (let i in cart) {
+            //função para retornar os dados do lanche no carrinho
+            let lancheItem = lancheJson.find((item) => item.id == cart[i].id;
+
+        }
+    } else {
+        sl('aside').classList.remove('show');
+    }
+}
