@@ -6,7 +6,7 @@ let modalKey = 0;
 const sl = (el) => document.querySelector(el);//c
 const cl = (el) => document.querySelectorAll(el);//cs
 
-//listagem das pizzas
+//listagem dos lanches
 lancheJson.map((item, index) => {
     let lancheItem = sl('.models .lanche-item').cloneNode(true);
     //prencher as informações em lancheItem
@@ -113,9 +113,38 @@ sl('.lancheInfo--addButton').addEventListener('click', () => {
 function updateCart() {
     if (cart.length > 0) {
         sl('aside').classList.add('show');
+        sl('.cart').innerHTML = '';
+
         for (let i in cart) {
             // função para retornar os dados do lanche no carrinho
             let lancheItem = lancheJson.find((item) => item.id == cart[i].id);
+            let cartItem = sl('.models .cart--item').cloneNode(true);
+
+            let lancheTamName;
+            switch (cart[i].size) {
+
+                case 0:
+                    lancheTamName = 'P';
+
+                    break;
+
+                case 1:
+                    lancheTamName = 'M';
+                    break;
+
+                case 2:
+                    lancheTamName = 'G';
+                    break;
+            }
+
+
+            let lancheName = lancheItem.name + ' ' + lancheTamName;
+
+            cartItem.querySelector('img').src = lancheItem.img;
+            cartItem.querySelector('.cart--item-nome').innerHTML = lancheName;
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;
+
+            sl('.cart').append(cartItem);
 
         }
     } else {
