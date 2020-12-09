@@ -120,25 +120,27 @@ function updateCart() {
             let lancheItem = lancheJson.find((item) => item.id == cart[i].id);
             let cartItem = sl('.models .cart--item').cloneNode(true);
 
+
             let lancheTamName;
-            switch (cart[i].size) {
+            switch (cart[i].tamanho) {
 
                 case 0:
-                    lancheTamName = 'P';
+                    lancheTamName = 'Pequena';
 
                     break;
 
                 case 1:
-                    lancheTamName = 'M';
+                    lancheTamName = 'Media';
                     break;
 
                 case 2:
-                    lancheTamName = 'G';
+                    lancheTamName = 'Grande';
                     break;
             }
 
 
             let lancheName = lancheItem.name + ' ' + lancheTamName;
+
 
             cartItem.querySelector('img').src = lancheItem.img;
             cartItem.querySelector('.cart--item-nome').innerHTML = lancheName;
