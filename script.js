@@ -115,9 +115,15 @@ function updateCart() {
         sl('aside').classList.add('show');
         sl('.cart').innerHTML = '';
 
+        let subtotal = 0;
+        let desconto = 0;
+        let total = 0;
+
         for (let i in cart) {
             // função para retornar os dados do lanche no carrinho
             let lancheItem = lancheJson.find((item) => item.id == cart[i].id);
+            subtotal += lancheItem.price * cart[i].qt;
+
             let cartItem = sl('.models .cart--item').cloneNode(true);
 
 
@@ -163,6 +169,14 @@ function updateCart() {
             sl('.cart').append(cartItem);
 
         }
+        //o desconto sendo de 10%
+        desconto = subtotal * 0.1;
+        total = subtotal - desconto;
+
+        sl('.subtotal span:last-child').innerHTML = 'R$ ' + subtotal.toFixed(2);
+        sl('.desconto span:last-child').innerHTML = 'R$ ' + desconto.toFixed(2);
+        sl('.total span:last-child').innerHTML = 'R$ ' + total.toFixed(2);
+
     } else {
         sl('aside').classList.remove('show');
     }
