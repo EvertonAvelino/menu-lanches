@@ -125,26 +125,40 @@ function updateCart() {
             switch (cart[i].tamanho) {
 
                 case 0:
-                    lancheTamName = 'Pequena';
+                    lancheTamName = 'P';
 
                     break;
 
                 case 1:
-                    lancheTamName = 'Media';
+                    lancheTamName = 'M';
                     break;
 
                 case 2:
-                    lancheTamName = 'Grande';
+                    lancheTamName = 'G';
                     break;
             }
 
 
-            let lancheName = lancheItem.name + ' ' + lancheTamName;
+            let lancheName = lancheItem.name + ' (' + lancheTamName + ')';
 
 
             cartItem.querySelector('img').src = lancheItem.img;
             cartItem.querySelector('.cart--item-nome').innerHTML = lancheName;
             cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;
+
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener("click", () => {
+                if (cart[i].qt > 1) {
+                    cart[i].qt--;
+                } else {
+                    cart.splice(i, 1);
+                }
+                updateCart();
+            });
+
+            cartItem.querySelector('.cart--item-qtmais').addEventListener("click", () => {
+                cart[i].qt++;
+                updateCart();
+            });
 
             sl('.cart').append(cartItem);
 
