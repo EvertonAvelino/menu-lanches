@@ -108,9 +108,21 @@ sl('.lancheInfo--addButton').addEventListener('click', () => {
     closeModal();
 });
 
+sl('.menu-openner span').addEventListener('click', () => {
+    if (cart.length > 0) {
+        sl('aside').style.left = '0vw';
+    }
+});
+sl('.menu-closer').addEventListener('click', () => {
+    sl('aside').style.left = '100vw';
+});
+
 //atualizar carrinho
 
 function updateCart() {
+
+    sl('.menu-openner span').innerHTML = cart.length;
+
     if (cart.length > 0) {
         sl('aside').classList.add('show');
         sl('.cart').innerHTML = '';
@@ -179,5 +191,6 @@ function updateCart() {
 
     } else {
         sl('aside').classList.remove('show');
+        sl('aside').style.left = '100vw';
     }
 }
