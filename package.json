@@ -1,0 +1,19 @@
+{
+  "name": "menu-lanches",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lanches.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvertonAvelino/menu-lanches.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvertonAvelino/menu-lanches/issues"
+  },
+  "homepage": "https://github.com/EvertonAvelino/menu-lanches#readme"
+}
